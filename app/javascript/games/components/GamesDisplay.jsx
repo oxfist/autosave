@@ -48,13 +48,17 @@ class GamesDisplay extends React.Component {
     const prevGameId = game.prev_id
 
     return (
-      <div>
+      <div className='game-container'>
         { prevGameId && <Link to={`/?game=${prevGameId}`}>Previous</Link> }
+        <div className='game-cover'>
+          <img src={game.image} />
+        </div>
+        <div className='game-data'>
+          <blockquote className='game-comment'>{game.comment}</blockquote>
+          <div className='game-title'>{game.title}</div>
+          <div className='quote-release_year'>{game.release_year}</div>
+        </div>
         { nextGameId && <Link to={`/?game=${nextGameId}`}>Next</Link> }
-        <p>{game.title}</p>
-        <p>{game.release_year}</p>
-        <p>{game.comment}</p>
-        <p>{game.image}</p>
       </div>
     )
   }

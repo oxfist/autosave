@@ -1,0 +1,97 @@
+body {
+  font-family: Georgia;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.game-container {
+  display: flex;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-comment {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  
+  &:before {
+    font-size: 2em;
+    line-height: 1;
+    top: 0;
+    left: 0;
+    content: "\201C";
+  }
+  &:after {
+    float:right;
+    font-size: 2em;
+    line-height: 1;
+    right:0;
+    bottom:-0.5em;
+    content: "\201D";
+  }
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  min-width: 200px;
+  padding: 10px;
+}
+
+.game-cover {
+  order: 1;
+  width: 350px;
+}
+
+.game-data {
+  order: 2;
+  width: 450px;
+  padding-left: 40px;
+}
+
+.game-title {
+  font-size: 1.3em;
+}
+
+.quote-release_year {
+  //margin-top: 20px;
+  //text-align: left;
+}
+
+.link-next, .link-previous {
+  transition: all .2s ease-in-out;
+  color: black;
+  font-size: 4em;
+  margin: 20px;
+  opacity: 0.3;
+  padding-bottom: 25px;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  text-align: center;
+  padding-bottom: 10px;
+  opacity: 0.5;
+  a {
+    color: black;
+    &:link {
+      text-decoration: none;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
