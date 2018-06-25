@@ -6,11 +6,12 @@ import {
 import GamesDisplay from './GamesDisplay'
 
 const App = (props) => (
-  <Router>
+  <Router startingGameId={props.startingGameId}>
     <div>
       <Route
         path='/'
-        component={GamesDisplay}
+        startingGameId={props.startingGameId}
+        render={routeProps => <GamesDisplay {...props} {...routeProps} />}
       />
     </div>
   </Router>

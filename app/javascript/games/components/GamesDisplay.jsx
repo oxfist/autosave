@@ -27,7 +27,7 @@ class GamesDisplay extends React.Component {
     if (this.qsParams.game) {
       this.gameId = Number(this.qsParams.game)
     } else {
-      this.gameId = 1
+      this.gameId = this.props.startingGameId
       this.props.history.push(`/?game=${this.gameId}`)
     }
   }
@@ -43,15 +43,18 @@ class GamesDisplay extends React.Component {
   }
 
   render() {
-    const nextGameId = Number(this.state.game.id) + 1
+    const game = this.state.game
+    const nextGameId = game.next_id
+    const prevGameId = game.prev_id
 
     return (
       <div>
-        <Link to={`/?game=${nextGameId}`}>Next</Link>
-        <p>{this.state.game.title}</p>
-        <p>{this.state.game.release_year}</p>
-        <p>{this.state.game.comment}</p>
-        <p>{this.state.game.image}</p>
+        { prevGameId && <Link to={`/?game=${prevGameId}`}>Previous</Link> }
+        { nextGameId && <Link to={`/?game=${nextGameId}`}>Next</Link> }
+        <p>{game.title}</p>
+        <p>{game.release_year}</p>
+        <p>{game.comment}</p>
+        <p>{game.image}</p>
       </div>
     )
   }
