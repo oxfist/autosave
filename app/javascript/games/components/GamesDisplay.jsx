@@ -1,13 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import queryString from 'query-string'
 import axios from 'axios'
+import GameCover from './GameCover'
+import GameData from './GameData'
+import GameFooter from './GameFooter'
+import GameNavigation from './GameNavigation'
 
 class GamesDisplay extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
+      fireRedirect: false,
       game: {}
     }
   }
@@ -18,7 +23,7 @@ class GamesDisplay extends React.Component {
         this.setState({ game: res.data })
       })
       .catch(err => {
-        console.error(err)
+        this.setState({ fireRedirect: true })
       })
   }
 
@@ -49,16 +54,17 @@ class GamesDisplay extends React.Component {
 
     return (
       <div className='game-container'>
-        { prevGameId && <Link to={`/?game=${prevGameId}`}>Previous</Link> }
-        <div className='game-cover'>
-          <img src={game.image} />
+        { this.state.fireRedirect && <Redirect to={'/'} /> }
+        { prevGameId
+          && <GameNavigation direction='prev' otherGameId={prevGameId} /> }
+        <div className='game'>
+          <GameCover game={this.state.game} />
+          <GameData game={this.state.game} />
         </div>
-        <div className='game-data'>
-          <blockquote className='game-comment'>{game.comment}</blockquote>
-          <div className='game-title'>{game.title}</div>
-          <div className='quote-release_year'>{game.release_year}</div>
-        </div>
-        { nextGameId && <Link to={`/?game=${nextGameId}`}>Next</Link> }
+        { nextGameId
+          && <GameNavigation direction='next' otherGameId={nextGameId} /> }
+        { this.state.game.id !== parseInt(this.props.startingGameId, 10)
+            && <GameFooter startingGameId={this.props.startingGameId} /> }
       </div>
     )
   }
