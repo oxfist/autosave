@@ -1,2 +1,3 @@
-json.extract! @game, :id, :title, :release_year, :image, :comment, :next_id,
+json.extract! @game, :id, :title, :release_year, :comment, :next_id,
               :prev_id
+json.image image_path(@game.image)

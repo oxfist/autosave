@@ -5,18 +5,27 @@ Game.create!(
     {
       title: 'The Witcher 3: Wild Hunt',
       release_year: 2015,
-      comment: 'I fucking love this game!',
-      image: 'https://static.giantbomb.com/uploads/scale_small/0/3699/2945734-the+witcher+3+-+wild+hunt.jpg'
+      comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed '\
+               'do eiusmod tempor incididunt ut labore et dolore magna '\
+               'aliqua. Ut enim ad minim veniam, quis nostrud exercitation '\
+               'ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis '\
+               'aute irure dolor in reprehenderit in voluptate velit esse '\
+               'cillum dolore eu fugiat nulla pariatur. Excepteur sint '\
+               'occaecat cupidatat non proident, sunt in culpa qui officia '\
+               'deserunt mollit anim id est laborum.',
+      image: 'the_witcher_3_wild_hunt_cover.jpg'
     },
     {
       title: 'Yakuza 0',
       release_year: 2017,
-      comment: 'GORO MAJIMA'
+      comment: 'GORO MAJIMA',
+      image: 'yakuza_0_cover.jpg'
     },
     {
       title: 'Bloodborne',
       release_year: 2015,
-      comment: 'Fear the old blood'
+      comment: 'Fear the old blood',
+      image: 'bloodborne_cover.jpg'
     }
   ]
 )
