@@ -18,7 +18,7 @@ Game.create!(
                'this real before. Now I finally understand all the buzz about '\
                'this game. The quest design enables you to experience real '\
                'consequences to your choices in this fantastic ficticious '\
-               'world, but it also highlights the astonishingly well writter '\
+               'world, but it also highlights the astonishingly well written '\
                'characters. You can feel like they are real people, from '\
                'Geralt and the Bloody Baron to the most harmless peasant with '\
                'his starving way of living and seemingly mundane issues. But '\
