@@ -14,19 +14,44 @@ Game.create!(
     {
       title: 'The Witcher 3: Wild Hunt',
       release_year: 2015,
-      comment: lorem_ipsum,
+      comment: 'I don’t think I’ve ever played a video game where things felt '\
+               'this real before. Now I finally understand all the buzz about '\
+               'this game. The quest design enables you to experience real '\
+               'consequences to your choices in this fantastic ficticious '\
+               'world, but it also highlights the astonishingly well writter '\
+               'characters. You can feel like they are real people, from '\
+               'Geralt and the Bloody Baron to the most harmless peasant with '\
+               'his starving way of living and seemingly mundane issues. But '\
+               'keep in mind, nothing in The Witcher 3 is really mundane.',
       image: 'the_witcher_3_wild_hunt_cover.jpg'
     },
     {
       title: 'Yakuza 0',
       release_year: 2017,
-      comment: lorem_ipsum,
+      comment: 'The origins of the Dragon of Dojima. This was my first '\
+               'encounter with the Yakuza franchise and it immediately blew '\
+               'my mind. Over the top epic fights for pride and honor, and '\
+               'cheesy but charming Japanese humor, is what this game is all '\
+               'about. By the time I finished the first chapter I realized I '\
+               'was playing a Japanese soap opera, and I never thought it '\
+               'could be as good as it was. The side quests make both '\
+               'protagonists shine, they’ll all be worth it. And what can be '\
+               'said about Goro Majima, you just have to see it for yourself.',
       image: 'yakuza_0_cover.jpg'
     },
     {
       title: 'Bloodborne',
       release_year: 2015,
-      comment: lorem_ipsum,
+      comment: 'Inspired by Lovecraft’s cosmic horror Bloodborne creates a '\
+               'world where nothing is laid out for you but at the same time '\
+               'is eagerly waiting to be discovered. Every nook and cranny '\
+               'hides a sad and dark story about characters dealing with the '\
+               'unknown, driving themselves to madness each step of the way, '\
+               'and the orchestrated soundtrack that goes with it is an '\
+               'absolute masterpiece. This is a punishing video game where '\
+               'you’ll die a lot, but the combat mechanics are so well '\
+               'designed that the sense of reward when overcoming difficult '\
+               'enemies by sheer skill is unmatched.',
       image: 'bloodborne_cover.jpg'
     },
     {
