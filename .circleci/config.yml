@@ -27,7 +27,7 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: install dependencies
+          name: Install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
@@ -36,6 +36,9 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
+      - run:
+          name: Install Yarn
+          command: yarn install --check-files
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
