@@ -1,5 +1,8 @@
 # Autosave
 
+## TODO
+- Add CircleCI image
+
 ## Requirements
 
 1. PostgreSQL 9.x
