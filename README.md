@@ -1,7 +1,13 @@
 # Autosave
 
+## Requirements
+
+1. PostgreSQL 9.x
+
 ## Run locally
-To run locally on port `3000` run `foreman start -f Procfile.dev -p 3000`.
+
+1. Setup db with `rails db:setup`
+1. To deploy locally on port `3000` run `foreman start -f Procfile.dev -p 3000`.
 
 ## Deployment
 
