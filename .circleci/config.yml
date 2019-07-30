@@ -59,7 +59,7 @@ jobs:
           destination: test-results
   deploy:
     docker:
-      - image: buildpack-deps:ẗrusty
+      - image: buildpack-deps:trusty
     steps:
       - checkout
       - run:
