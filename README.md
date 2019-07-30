@@ -1,7 +1,5 @@
 # Autosave
-
-## TODO
-- Add CircleCI image
+[![CircleCI](https://circleci.com/gh/oxfist/autosave/tree/master.svg?style=svg)](https://circleci.com/gh/oxfist/autosave/tree/master)
 
 ## Requirements
 
