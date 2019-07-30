@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2018_06_25_044840) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.integer "release_year"
