@@ -3,4 +3,5 @@ import ReactDOM from 'react-dom'
 import App from './components/App'
 
 const games = document.querySelector('#games')
-ReactDOM.render(<App startingGameId={games.dataset.startingGameId}/>, games)
+const app = <App startingGameId={ games.dataset.startingGameId} />
+ReactDOM.render(app, games)
