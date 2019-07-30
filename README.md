@@ -8,6 +8,7 @@
 ## Run locally
 
 1. Setup db with `rails db:setup`
+1. Install front-end packages with `yarn install`
 1. To deploy locally on port `3000` run `foreman start -f Procfile.dev -p 3000`.
 
 ## Deployment
