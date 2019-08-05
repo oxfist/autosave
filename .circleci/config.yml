@@ -47,7 +47,7 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       - save_cache:
-          name: Sabe Yarn cache
+          name: Save Yarn cache
           paths:
             - ./node_modules
           key: v1-yarn-dependencies-{{ checksum "yarn.lock" }}
