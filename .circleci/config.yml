@@ -56,10 +56,21 @@ jobs:
     steps:
       - checkout
 
+      - restore_cache:
+          name: Restore gems cache
+          keys:
+            - v2-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v2-dependencies-
+
+      - run:
+          name: Install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
       - run:
         name: RuboCop check
-        command:
-          bundle exec rubocop app test
+        command: bundle exec rubocop app test
 
   test:
     docker:
