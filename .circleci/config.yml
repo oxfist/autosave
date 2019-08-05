@@ -25,9 +25,9 @@ jobs:
       - restore_cache:
           name: Restore gems cache
           keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v2-dependencies-{{ checksum "Gemfile.lock" }}
             # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            - v2-dependencies-
 
       - run:
           name: Install dependencies
@@ -36,25 +36,25 @@ jobs:
 
       - save_cache:
           name: Save gems cache
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+          key: v2-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
             - ./vendor/bundle
 
       - restore_cache:
           name: Restore Yarn cache
           keys:
-            - v1-dependencies-yarn-{{ checksum "yarn.lock" }}
-            - v1-dependencies-yarn
+            - v2-dependencies-yarn-{{ checksum "yarn.lock" }}
+            - v2-dependencies-yarn
 
       - run:
           name: Install Yarn packages
-          command: yarn install --cache-folder ~/.cache/yarn
+          command: yarn install
 
       - save_cache:
           name: Save Yarn cache
-          key: v1-dependencies-yarn-{{ checksum "yarn.lock" }}
+          key: v2-dependencies-yarn-{{ checksum "yarn.lock" }}
           paths:
-            - ~/.cache/yarn
+            - ./node_modules
 
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
