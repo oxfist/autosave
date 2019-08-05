@@ -7,15 +7,6 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.3-node-browsers
-        environment:
-          RAILS_ENV: test
-          PGHOST: 127.0.0.1
-          DATABASE_URL: postgres://postgres@127.0.0.1/autosave-test
-      - image: circleci/postgres:11.4-alpine
-        environment:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: ""
-          POSTGRES_DB: autosave-test
 
     working_directory: ~/repo
 
@@ -55,11 +46,40 @@ jobs:
           key: v2-dependencies-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
+  test:
+    docker:
+      - image: circleci/ruby:2.6.3-node-browsers
+        environment:
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          DATABASE_URL: postgres://postgres@127.0.0.1/autosave-test
+      - image: circleci/postgres:11.4-alpine
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ""
+          POSTGRES_DB: autosave-test
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          name: Restore gems cache
+          keys:
+            - v2-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v2-dependencies-
+
+      - restore_cache:
+          name: Restore Yarn cache
+          keys:
+            - v2-dependencies-yarn-{{ checksum "yarn.lock" }}
+            - v2-dependencies-yarn
 
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-      # run tests!
       - run:
           name: run tests
           command: bundle exec rake test
@@ -70,6 +90,7 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
   deploy:
     docker:
       - image: buildpack-deps:trusty
@@ -84,9 +105,12 @@ workflows:
   build-deploy:
     jobs:
       - build
-      - deploy:
+      - test:
           requires:
             - build
+      - deploy:
+          requires:
+            - test
           filters:
             branches:
               only: master
