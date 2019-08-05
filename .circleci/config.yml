@@ -69,8 +69,8 @@ jobs:
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - run:
-        name: RuboCop check
-        command: bundle exec rubocop app test
+          name: RuboCop check
+          command: bundle exec rubocop app test
 
   test:
     docker:
