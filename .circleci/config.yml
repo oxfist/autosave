@@ -43,8 +43,8 @@ jobs:
       - restore_cache:
           name: Restore Yarn cache
           keys:
-            - v1-yarn-dependencies-{{ checksum "yarn.lock" }}
-            - v1-yarn-dependencies-
+            - v1-dependencies-yarn-{{ checksum "yarn.lock" }}
+            - v1-dependencies-yarn
 
       - run:
           name: Install Yarn packages
@@ -52,7 +52,7 @@ jobs:
 
       - save_cache:
           name: Save Yarn cache
-          key: v1-yarn-dependencies-{{ checksum "yarn.lock" }}
+          key: v1-dependencies-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
 
