@@ -1,5 +1,5 @@
 # Autosave
-[![CircleCI](https://circleci.com/gh/oxfist/autosave/tree/master.svg?style=svg)](https://circleci.com/gh/oxfist/autosave/tree/master)
+[![CircleCI](https://circleci.com/gh/oxfist/autosave/tree/master.svg?style=svg)](https://circleci.com/gh/oxfist/autosave/tree/master) [![Maintainability](https://api.codeclimate.com/v1/badges/995865b9fd8750c2002c/maintainability)](https://codeclimate.com/github/oxfist/autosave/maintainability)
 
 ## TODO
 - Containerize
