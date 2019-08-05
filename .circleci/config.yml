@@ -46,6 +46,21 @@ jobs:
           key: v2-dependencies-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
+
+  rubocop-check:
+    docker:
+      - image: circleci/ruby:2.6.3-node-browsers
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - run:
+        name: RuboCop check
+        command:
+          bundle exec rubocop app test
+
   test:
     docker:
       - image: circleci/ruby:2.6.3-node-browsers
@@ -110,9 +125,11 @@ workflows:
   build-test-deploy:
     jobs:
       - build
+      - rubocop-check
       - test:
           requires:
             - build
+            - rubocop-check
       - deploy:
           requires:
             - test
